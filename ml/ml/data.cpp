@@ -24,7 +24,7 @@ void data::set_label(uint8_t n) { label = n; }
 
 void data::set_enum_label(int n) { enum_label = n; }
 
-uint32_t data::get_feature_vector_size() { return feature_vector->size(); }
+uint32_t data::get_feature_vector_size() { return (uint32_t)feature_vector->size(); }
 
 uint8_t data::get_label() { return label; }
 

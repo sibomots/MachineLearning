@@ -58,7 +58,7 @@ bool data_handler::read_feature_vector(std::string path) {
     SAFE_DELETEA(pElements);
   }
 #ifdef _DEBUG
-  printf("INFO: Size of data_array %lu\n", data_array->size());
+  printf("INFO: Size of data_array %d\n", (uint32_t) data_array->size());
   printf("INFO: Successfully read/stored feature vectors.\n");
 #endif
   return true;
@@ -101,9 +101,9 @@ bool data_handler::read_feature_labels(std::string path) {
 
 void data_handler::split_data() {
   std::unordered_set<int> used_indexes;
-  uint32_t train_size = (data_array->size() * TRAIN_SET_PERCENT) / 100;
-  uint32_t test_size = (data_array->size() * TEST_SET_PERCENT) / 100;
-  uint32_t valid_size = (data_array->size() * VALIDATION_PERCENT) / 100;
+  uint32_t train_size = ((uint32_t)data_array->size() * TRAIN_SET_PERCENT) / 100u;
+  uint32_t test_size = ((uint32_t)data_array->size() * TEST_SET_PERCENT) / 100u;
+  uint32_t valid_size = ((uint32_t)data_array->size() * VALIDATION_PERCENT) / 100u;
   uint32_t count = 0;
   // seed the rand
   srand((unsigned int)time(NULL));
@@ -137,9 +137,9 @@ void data_handler::split_data() {
   }
 
 #ifdef _DEBUG
-  printf("INFO: Training data size: %lu\n", training_data->size());
-  printf("INFO: Test data size: %lu\n", test_data->size());
-  printf("INFO: Validation data size: %lu\n", validation_data->size());
+  printf("INFO: Training data size: %d\n", (uint32_t)training_data->size());
+  printf("INFO: Test data size: %d\n", (uint32_t)test_data->size());
+  printf("INFO: Validation data size: %d\n", (uint32_t)validation_data->size());
 #endif
 }
 

@@ -21,7 +21,7 @@ bool knn::find_knearest(data *query_point) {
 
   for (uint32_t i = 0u; i < k; i++) {
     if (i == 0) {
-      for (size_t j = 0; j < training_data->size(); j++) {
+      for (uint32_t j = 0; j < training_data->size(); j++) {
         double distance = 0.0;
         // we can fail here, so let's check:
         if (calculate_distance(query_point, training_data->at(j), distance)) {
